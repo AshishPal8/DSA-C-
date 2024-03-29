@@ -73,7 +73,7 @@ int isArmstrong(int n)
     {
         remainder = dup % 10;
         sum += round(pow(remainder, n));
-        result +=sum;
+        result += sum;
         dup /= 10;
     }
     if (result == n)
@@ -81,13 +81,43 @@ int isArmstrong(int n)
     else
         cout << n << "false";
 
-
     return sum;
+}
+int divisible(int n)
+{
+    long long sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum = sum + (n / i) * i;
+    }
+    cout << sum;
+    return sum;
+}
+bool isPrime(int n)
+{
+    int count = 0;
+    for (int i = 1; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            count++;
+        if ((n / i) != i)
+            count++;
+    }
+    if (count == 2)
+    {
+        cout << "True";
+        return true;
+    }
+    else
+    {
+        cout << "False";
+        return false;
+    }
 }
 
 int main()
 {
     int n;
     cin >> n;
-    isArmstrong(n);
+    isPrime(n);
 }
